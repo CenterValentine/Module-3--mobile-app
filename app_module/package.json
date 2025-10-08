@@ -1,0 +1,26 @@
+{
+  "name": "app_module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "pnpm -v > /dev/null",
+    "install:all": "pnpm install",
+    "build": "turbo run build",
+    "dev:web": "pnpm --filter @project/web dev",
+    "dev:mobile": "pnpm --filter @project/mobile start",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "clean": "turbo run clean"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.18.1",
+  "devDependencies": {
+    "eslint": "^9.37.0",
+    "prettier": "^3.6.2",
+    "turbo": "^2.5.8",
+    "typescript": "^5.9.3"
+  }
+}
