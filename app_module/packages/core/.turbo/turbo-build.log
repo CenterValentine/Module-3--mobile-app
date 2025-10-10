@@ -1,0 +1,7 @@
+
+
+> @project/core@0.0.1 build /Users/davidvalentine/Documents/Learning/CSE310 Applied Programming/Module 3 - Mobile Applications/app_module/packages/core
+> tsup
+
+[31mNo input files, try "tsup <your-file>" instead[39m
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 1.[39m

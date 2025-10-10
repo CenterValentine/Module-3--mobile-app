@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "description":"Emit .d.ts types into dist.",
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "dist",
+    "skipLibCheck": true
+  },
+  "include": ["src"]
+}
