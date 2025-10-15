@@ -12,7 +12,8 @@
     "dev:mobile": "pnpm --filter @project/mobile start",
     "lint": "turbo run lint",
     "test": "turbo run test",
-    "clean": "turbo run clean"
+    "clean": "turbo run clean",
+    "eas-build-pre-install": "corepack enable"
   },
   "keywords": [
     "garden-plot"

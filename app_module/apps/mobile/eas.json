@@ -8,9 +8,9 @@
       "developmentClient": true,
       "distribution": "internal",
       "autoIncrement": true,
-      "ios": {"simulator": true},
-       "env": {
-        "EAS_BUILD_AUTOINSTALL_COMMAND": "corepack enable && corepack prepare pnpm@10.18.1 --activate && pnpm install --frozen-lockfile --filter @project/mobile..."
+      "ios": { "simulator": true },
+      "env": {
+        "EAS_BUILD_AUTOINSTALL_COMMAND": "corepack enable && corepack prepare pnpm@10.18.1 --activate && pnpm install --frozen-lockfile"
       }
     },
     "preview": {
@@ -23,8 +23,5 @@
   },
   "submit": {
     "production": {}
-  },
-  "hooks": {
-    "pre-install": "corepack enable && corepack prepare pnpm@10.18.1 --activate"
   }
 }

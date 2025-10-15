@@ -9,7 +9,8 @@
     "ios": "expo run:ios",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "jest",
-    "clean": "rimraf .expo && rimraf build"
+    "clean": "rimraf .expo && rimraf build",
+    "eas-build-pre-install": "corepack enable"
   },
   "dependencies": {
     "@babel/runtime": "^7.28.4",
