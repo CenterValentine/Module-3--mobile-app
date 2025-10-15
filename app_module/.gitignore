@@ -10,6 +10,7 @@ coverage/
 .vscode
 .env
 web-build/
+apps/mobile/.expo
 
 # CocoaPods
 ios/Pods/
