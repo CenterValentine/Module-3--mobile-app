@@ -3,6 +3,7 @@ pnpm-lock.yaml
 dist
 .build
 .expo
+.expo/
 .expo-shared
 .DS_Store
 coverage/
@@ -36,4 +37,4 @@ apps/mobile/android/
 # apps/mobile/android/build/
 # apps/mobile/ios/build/
 # apps/mobile/ios/DerivedData/
-# apps/mobile/ios/Pods/
+# apps/mobile/ios/Pods/apps/mobile/.expo/
