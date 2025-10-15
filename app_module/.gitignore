@@ -1,8 +1,39 @@
 node_modules
+pnpm-lock.yaml
 dist
 .build
 .expo
 .expo-shared
 .DS_Store
-coverage
+coverage/
 .vscode
+.env
+web-build/
+
+# CocoaPods
+ios/Pods/
+ios/Podfile.lock
+
+# Android build
+android/.gradle/
+android/app/build/
+android/build/
+
+# Xcode build
+ios/build/
+ios/DerivedData/
+
+# macOS junk
+.DS_Store
+
+# Entire native projects (EAS will regenerate)
+apps/mobile/ios/
+apps/mobile/android/
+
+# If you ever keep native projects locally, at least ignore build outputs:
+# apps/mobile/android/.gradle/
+# apps/mobile/android/app/build/
+# apps/mobile/android/build/
+# apps/mobile/ios/build/
+# apps/mobile/ios/DerivedData/
+# apps/mobile/ios/Pods/

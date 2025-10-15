@@ -2,12 +2,25 @@ import React from "react";
 import { SafeAreaView, TextInput, Text, View, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useGreeting } from "@project/core";
+import MapView, { Marker } from 'react-native-maps';
 
 export default function App() {
   const { message, setName } = useGreeting();
 
   return (
     <SafeAreaView style={styles.container}>
+      <View>
+        <MapView provider="google"
+        initialRegion={{
+          latitude: 40.1215,
+          longitude: -100.4503,
+          latitudeDelta: 5,
+          longitudeDelta: 5,
+        }}
+        >
+          
+        </MapView>
+      </View>
       <View>
         <Text style={styles.title}>Mobile: Shared Core Demo</Text>
         <Text style={styles.message}>{message}</Text>
