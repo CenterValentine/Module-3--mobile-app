@@ -16,32 +16,36 @@ export default {
     orientation: "portrait",
 sdkVersion: "52.0.0",
     
-plugins: [],
+ plugins: ["expo-asset"],
 
-    ios: { supportsTablet: true,
-       config: {
-        // eas secret:create --name xyz --value<value>
-        // These will populate process.env.* during the build, app.config.js reads
-        googleMapsApiKey: process.env.IOS_GOOGLE_MAPS_API_KEY ?? process.env.NON_SPECIFIC_GOOGLE_MAPS_API_KEY
-      },
-      "infoPlist": {
-      "ITSAppUsesNonExemptEncryption": false
-    },
+    ios: {
+      supportsTablet: true,
       icon: "./assets/adaptive-icon.png",
       bundleIdentifier: "com.dpv.gardenplot",
-    
+      infoPlist: { ITSAppUsesNonExemptEncryption: false },
+      config: {
+        googleMapsApiKey:
+          process.env.IOS_GOOGLE_MAPS_API_KEY ??
+          process.env.NON_SPECIFIC_GOOGLE_MAPS_API_KEY
+      }
     },
 
-    android: { 
+    android: {
       package: "com.dpv.gardenplot",
-      adaptiveIcon:
-       { foregroundImage: "./assets/adaptive-icon.png",
-        backgroundColor: "#4CAF50"},
-        config: {
+      adaptiveIcon: {
+        foregroundImage: "./assets/adaptive-icon.png",
+        backgroundColor: "#4CAF50"
+      },
+      config: {
         googleMaps: {
-          apiKey: process.env.ANDROID_GOOGLE_MAPS_API_KEY ?? process.env.NON_SPECIFIC_GOOGLE_MAPS_API_KEY
+          apiKey:
+            process.env.ANDROID_GOOGLE_MAPS_API_KEY ??
+            process.env.NON_SPECIFIC_GOOGLE_MAPS_API_KEY
         }
-      }},
+      }
+    },
+
+
     web: { bundler: "metro" },
 
     extra: {

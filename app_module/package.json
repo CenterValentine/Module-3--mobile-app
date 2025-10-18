@@ -4,16 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prepare": "pnpm -v > /dev/null",
-    "install:all": "pnpm install",
-    "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
+     "dev": "turbo run dev --parallel",
     "dev:web": "pnpm --filter @project/web dev",
-    "dev:mobile": "pnpm --filter @project/mobile start",
-    "lint": "turbo run lint",
-    "test": "turbo run test",
-    "clean": "turbo run clean",
-    "eas-build-pre-install": "corepack enable"
+
+
+    "dev:mobile:client": "pnpm --filter @project/mobile run start:client",
+
+    "build:ios:dev": "pnpm --filter @project/mobile run build:ios:dev",
+    "build:ios:dev:local": "pnpm --filter @project/mobile run build:ios:dev:local",
+    "build:android:dev": "pnpm --filter @project/mobile run build:android:dev",
+    "build:ios:prod": "pnpm --filter @project/mobile run build:ios:prod",
+    "build:android:prod": "pnpm --filter @project/mobile run build:android:prod"
   },
   "keywords": [
     "garden-plot"
@@ -31,6 +32,7 @@
     "typescript": "^5.6.3"
   },
   "dependencies": {
-    "@babel/runtime": "^7.28.4"
+    "@babel/runtime": "^7.28.4",
+    "hermes-parser": "^0.19.2"
   }
 }

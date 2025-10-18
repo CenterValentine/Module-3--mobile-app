@@ -1,54 +1,38 @@
-import React from "react";
-import { SafeAreaView, TextInput, Text, View, StyleSheet } from "react-native";
-import { StatusBar } from "expo-status-bar";
-import { useGreeting } from "@project/core";
-import MapView, { Marker } from 'react-native-maps';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { Layout } from "./components/nav/useNavigationLayout";
+import { NavigationProvider } from "./components/nav/NavigationProvider";
+import { NavOverlay } from "./components/nav/NavOverlay";
+import HomeScreen from './components/screens/HomeScreen';
+
 
 export default function App() {
-  const { message, setName } = useGreeting();
+return (
+  <SafeAreaProvider>
+  <SafeAreaView style={styles.container}>
+{/* Note about SafeAreaView, protects against
+Status bar icons (top of screen)
+The notch on newer iPhones
+The home indicator (bottom swipe bar)
+*/}
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <View>
-        <MapView provider="google"
-        initialRegion={{
-          latitude: 40.1215,
-          longitude: -100.4503,
-          latitudeDelta: 5,
-          longitudeDelta: 5,
-        }}
-        >
-          
-        </MapView>
-      </View>
-      <View>
-        <Text style={styles.title}>Mobile: Shared Core Demo</Text>
-        <Text style={styles.message}>{message}</Text>
-        <TextInput
-          placeholder="Type your name"
-          onChangeText={(t) => setName(t)}
-          style={styles.input}
-        />
-        <Text style={styles.hint}>
-          Greeting powered by <Text style={styles.code}>@project/core</Text>
-        </Text>
-      </View>
-      <StatusBar style="auto" />
-    </SafeAreaView>
-  );
+
+     <NavigationProvider>
+       <View style={styles.container}>
+         {/*  Home / Plan / Settings via route */}
+          <Layout />         
+          {/* Pressables setRoute(...) */}
+          <NavOverlay />      
+        </View>
+     </NavigationProvider>
+
+  </SafeAreaView>
+  </SafeAreaProvider>
+)
+
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 24, justifyContent: "center" },
-  title: { fontSize: 22, fontWeight: "600", marginBottom: 8 },
-  message: { fontSize: 18, marginBottom: 12 },
-  input: {
-    borderColor: "#bbb",
-    borderWidth: 1,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: 6
-  },
-  hint: { marginTop: 10, color: "#666" },
-  code: { fontFamily: "Courier", color: "#333" }
-});
+container: { flex: 1 }
+})

@@ -4,24 +4,30 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "start": "expo start --clear",
-    "android": "expo run:android",
-    "ios": "expo run:ios",
-    "lint": "eslint . --ext .ts,.tsx",
-    "test": "jest",
-    "clean": "rimraf .expo && rimraf build",
-    "eas-build-pre-install": "corepack enable"
+    "start": "expo start --dev-client --clear",
+    "start:client": "expo start --dev-client --clear",
+    "dontdothis": "eas build -p ios --profile development",
+    "build:ios:dev": "eas build -p ios --profile development-simulator",
+    "build:ios:dev:local": "eas build --local -p ios --profile development-simulator",
+    "build:android:dev": "eas build -p android --profile development",
+    "build:ios:prod": "eas build -p ios --profile production",
+    "build:android:prod": "eas build -p android --profile production",
+    "ios:install": "expo run:ios --scheme GardenPlot",
+    "eas-build-pre-install": "npm i -g corepack@latest && corepack enable && corepack prepare pnpm@9.15.5 --activate"
   },
   "dependencies": {
     "@babel/runtime": "^7.28.4",
     "@project/core": "workspace:*",
+    "@vis.gl/react-google-maps": "^1.5.5",
     "dotenv": "^17.2.3",
     "expo": "~52.0.47",
+    "expo-asset": "~11.0.5",
     "expo-dev-client": "~5.0.20",
     "expo-status-bar": "~2.0.1",
     "react": "18.3.1",
     "react-native": "0.76.9",
-    "react-native-maps": "1.18.0"
+    "react-native-maps": "1.18.0",
+    "react-native-safe-area-context": "4.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.28.4",
