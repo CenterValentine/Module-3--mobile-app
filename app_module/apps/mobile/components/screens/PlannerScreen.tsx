@@ -2,15 +2,18 @@ import React from "react";
 import { View, Text, ScrollView, StyleSheet } from "react-native";
 
 import MapScreen from '../maps/Map'
+import MapTypeToggle from '../maps/MapWithPolygon'
 
 export default function PlannerScreen() {
 
-    return (<>
+    return (
+    <>
    <View style={[styles.content]}>
          <Text style={styles.h1}>Garden Planner</Text>
          <Text>Find your garden page!</Text>
     </View>
     <MapScreen/>
+    {/* <MapTypeToggle/> */}
     </>
 
 )

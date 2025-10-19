@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.28.4",
+    "@expo/vector-icons": "^15.0.2",
     "@project/core": "workspace:*",
     "@vis.gl/react-google-maps": "^1.5.5",
     "dotenv": "^17.2.3",

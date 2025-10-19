@@ -1,6 +1,6 @@
 import React, {useRef, useState} from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
-import MapView, { Marker, PROVIDER_GOOGLE, MapType } from 'react-native-maps';
+import { View, StyleSheet } from 'react-native';
+import MapView, { PROVIDER_GOOGLE, Polygon, MapType } from 'react-native-maps';
 import MapTypeToggle from './MapTypeToggle';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -8,12 +8,20 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 const CENTER = { latitude: 37.20649891449835, longitude: -113.26759442945512 }; // Hurricane, UT
 const DELTA = { latitudeDelta: 0.0005, longitudeDelta: 0.0005 };
 
-export default function MapScreen() {
+export default function MapWithPolygon() {
   const mapRef = useRef<MapView>(null)
   const [mapType, setMapType] = useState<MapType>('satellite');
   const toggleType = () => {
           setMapType(prev => (prev === 'satellite' ? 'standard' : 'satellite'));
         }
+
+    const [polygonCoords] = useState([
+    { latitude: CENTER.latitude + 0.001, longitude: CENTER.longitude + 0.001 },
+    { latitude: CENTER.latitude + 0.001, longitude: CENTER.longitude - 0.001 },
+    { latitude: CENTER.latitude - 0.001, longitude: CENTER.longitude - 0.001 },
+    { latitude: CENTER.latitude - 0.001, longitude: CENTER.longitude + 0.001 },
+  ]);
+
 
 
   return (
@@ -30,6 +38,12 @@ export default function MapScreen() {
       
     console.log('[Map] onMapReady fired')
     }}>
+<Polygon
+coordinates={polygonCoords}
+strokeColor="#FF0000"
+strokeWidth={2}
+fillColor="rgba(255,0,0,0.3)"
+/> 
     <MapTypeToggle></MapTypeToggle>
     </MapView>
 

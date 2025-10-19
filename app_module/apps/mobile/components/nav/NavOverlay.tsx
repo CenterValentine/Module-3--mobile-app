@@ -11,7 +11,9 @@ export const NavOverlay: React.FC = () => {
         setNavHeight(h);
     }, [setNavHeight]);
 
-    return (<View onLayout={onLayout} style={[styles.wrap, { paddingBottom: inset.bottom }]}>
+    return (
+    
+    <View onLayout={onLayout} style={[styles.wrap, { paddingBottom: inset.bottom }]}>
         {[
         { key: "home", label: "Home"  },
         { key: "plan", label: "Plan" },
@@ -29,7 +31,6 @@ export const NavOverlay: React.FC = () => {
 )}
 
 const styles = StyleSheet.create(
-
     {
         wrap: {
             position: "absolute",
